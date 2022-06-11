@@ -137,7 +137,7 @@
 	var/image/item_overlay = image(holding)
 	item_overlay.alpha = 92
 
-	if(!user.can_equip(holding, slot_id, TRUE, TRUE, TRUE))
+	if(!user.can_equip(holding, slot_id, disable_warning = TRUE, bypass_equip_delay_self = TRUE))
 		item_overlay.color = "#FF0000"
 	else
 		item_overlay.color = "#00ff00"
@@ -145,7 +145,6 @@
 	cut_overlay(object_overlay)
 	object_overlay = item_overlay
 	add_overlay(object_overlay)
-	update_icon(object_overlay)
 
 /obj/screen/inventory/hand
 	var/mutable_appearance/handcuff_overlay
